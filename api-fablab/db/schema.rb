@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_21_182636) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_03_152526) do
   create_table "maquinas", force: :cascade do |t|
     t.string "apelido", limit: 50
     t.string "nome_tecnico", limit: 100
@@ -29,5 +29,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_21_182636) do
     t.string "tipo", default: "Usuários"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "excluido"
+    t.integer "score"
   end
 end
