@@ -18,7 +18,7 @@ class Api::V1::UsuariosController < ApplicationController
     @usuario = Usuario.new(usuario_params)
 
     if @usuario.save
-      render json: @usuario, status: :created, location: @usuario
+      render json: @usuario, status: :created, location: api_v1_usuario_url(@usuario)
     else
       render json: @usuario.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class Api::V1::UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.expect(usuario: [ :nome, :senha, :email, :cpf, :data_nascimento, :tipo ])
+      params.expect(usuario: [ :nome, :senha, :email, :cpf, :data_nascimento, :tipo, :excluido, :score ])
     end
 end
