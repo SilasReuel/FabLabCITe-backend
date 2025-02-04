@@ -18,7 +18,8 @@ Este repositório contém o backend do sistema **FabLab-CITe**, responsável pel
 ## 📂 Estrutura do Projeto
 
 ```bash
-📦 api-fablab ├── app/ # Código principal da aplicação (models, controllers, views)
+📦 api-fablab
+├── app/ # Código principal da aplicação (models, controllers, views)
 ├── bin/ # Scripts executáveis para inicialização e gerenciamento
 ├── config/ # Configurações da aplicação
 ├── db/ # Arquivos do banco de dados (migrations, seeds)
