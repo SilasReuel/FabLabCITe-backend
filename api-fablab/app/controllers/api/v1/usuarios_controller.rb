@@ -1,4 +1,5 @@
 class Api::V1::UsuariosController < ApplicationController
+  skip_before_action :authenticate_request, only: [:create]
   before_action :set_usuario, only: %i[ show update destroy ]
 
   # GET /usuarios
@@ -46,6 +47,8 @@ class Api::V1::UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.expect(usuario: [ :nome, :senha, :email, :cpf, :data_nascimento, :tipo, :excluido, :score ])
+      permitted_params = params.require(:usuario).permit(:nome, :email, :excluido, :password, :cpf, :data_nascimento, :tipo, :score)
+      Rails.logger.debug("Parâmetros permitidos: #{permitted_params.inspect}")
+      permitted_params
     end
 end

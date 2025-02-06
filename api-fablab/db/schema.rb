@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_03_152526) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_06_201430) do
   create_table "maquinas", force: :cascade do |t|
     t.string "apelido", limit: 50
     t.string "nome_tecnico", limit: 100
@@ -22,7 +22,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_152526) do
 
   create_table "usuarios", force: :cascade do |t|
     t.string "nome", limit: 100
-    t.string "senha"
     t.string "email", limit: 100
     t.string "cpf", limit: 11
     t.date "data_nascimento"
@@ -31,5 +30,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_152526) do
     t.datetime "updated_at", null: false
     t.boolean "excluido"
     t.integer "score"
+    t.string "password_digest"
   end
 end
