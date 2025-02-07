@@ -1,4 +1,5 @@
 class Api::V1::MaquinasController < ApplicationController
+  skip_before_action :authenticate_request, only: [:index]
   before_action :set_maquina, only: %i[ show update destroy ]
 
   # GET /maquinas
@@ -18,7 +19,7 @@ class Api::V1::MaquinasController < ApplicationController
     @maquina = Maquina.new(maquina_params)
 
     if @maquina.save
-      render json: @maquina, status: :created, location: @maquina
+      render json: @maquina, status: :created, location: api_v1_maquina_url(@maquina)
     else
       render json: @maquina.errors, status: :unprocessable_entity
     end
